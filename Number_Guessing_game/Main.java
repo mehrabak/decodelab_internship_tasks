@@ -1,63 +1,48 @@
-public class Main{
-    public static void main(String[] args){
+public class Main {
+    public static void main(String[] args) {
 
-        InputHandler inputhandler = new InputHandler();
-        int totalRounds = 0 ;
-        int roundswon = 0;
+        InputHandler inputHandler = new InputHandler(); // camelCase
+        int totalRounds = 0;
+        int roundsWon = 0; 
 
         final int MAX_NUM = 100;
         final int MAX_ATTEMPT = 7;
 
         System.out.println("\nWELCOME TO THE DECODELABS NUMBER GUESSING GAME \n");
 
-        boolean keepPlaying = true ;
+        boolean keepPlaying = true;
 
-        while(keepPlaying){
+        while (keepPlaying) {
             totalRounds++;
-            GameEngine game = new GameEngine(Max_ATTEMPT,MAX_NUM);
+            GameEngine game = new GameEngine(MAX_ATTEMPT, MAX_NUM);
             boolean won = false;
 
             System.out.println("\n---- Round " + totalRounds + " ----");
 
-            while(!game.isOutOfAttempt()){
-                int guess = inputhandler.getValidGuess(MAx_NUM,game.getAttemptLeft());
+            while (!game.isOutOfAttempts()) { // was isOutOfAttempt
+                int guess = inputHandler.getValidGuess(MAX_NUM, game.getAttemptsLeft()); 
                 String result = game.evaluateGuess(guess);
 
-                switch(result){
-                    case "Correct" -> {
-                        System.out.println("you guessed it in " + (MAx_ATTEMPT - game.getAttemptLeft()) + attempts);
-                        won = true ;
+                switch (result) {
+                    case "CORRECT" -> { // must match GameEngine return
+                        System.out.println("You guessed it in " + (MAX_ATTEMPT - game.getAttemptsLeft()) + " attempts!");
+                        won = true;
                         roundsWon++;
-
                     }
-
-                    case "Too_High" -> System.out.println("TOo high");
-                    case "Too_Low" -> System.out.println("TOo Low");
-
-
+                    case "TOO_HIGH" -> System.out.println("📉 Too High");
+                    case "TOO_LOW" -> System.out.println("📈 Too Low");
                 }
-                if(won) break;
-
-
-
-
+                if (won) break;
             }
 
-            if(!won){
-                System.out.println("Game over!! , The secret number was : " + game.getTargetNum());
+            if (!won) {
+                System.out.println("Game over!! , The secret number was : " + game.getTargetNumber()); 
             }
 
-            keepPlaying = inputhandler.askToPlayAgain();
-
-
-            }
-
-            System.out.println("Final Score  : " + totalRounds + " won : " + roundWon);
-            inputhandler.close();
-
+            keepPlaying = inputHandler.askToPlayAgain();
         }
 
-
+        System.out.println("\nFinal Score  : Total Rounds = " + totalRounds + " | Won = " + roundsWon); 
+        inputHandler.close();
     }
-
-
+}
