@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        InputHandler inputHandler = new InputHandler(); // camelCase
+        InputHandler inputHandler = new InputHandler();
         int totalRounds = 0;
-        int roundsWon = 0; 
+        int roundsWon = 0;
 
         final int MAX_NUM = 100;
         final int MAX_ATTEMPT = 7;
@@ -19,13 +19,13 @@ public class Main {
 
             System.out.println("\n---- Round " + totalRounds + " ----");
 
-            while (!game.isOutOfAttempts()) { // was isOutOfAttempt
-                int guess = inputHandler.getValidGuess(MAX_NUM, game.getAttemptsLeft()); 
+            while (!game.isOutOfAttempts()) {
+                int guess = inputHandler.getValidGuess(game.getMaxNum(), game.getAttemptsLeft()); // use game.getMaxNum() so it works with difficulty later
                 String result = game.evaluateGuess(guess);
 
                 switch (result) {
-                    case "CORRECT" -> { // must match GameEngine return
-                        System.out.println("You guessed it in " + (MAX_ATTEMPT - game.getAttemptsLeft()) + " attempts!");
+                    case "CORRECT" -> {
+                        System.out.println("🎯 You guessed it in " + (MAX_ATTEMPT - game.getAttemptsLeft()) + " attempts!");
                         won = true;
                         roundsWon++;
                     }
@@ -36,13 +36,13 @@ public class Main {
             }
 
             if (!won) {
-                System.out.println("Game over!! , The secret number was : " + game.getTargetNumber()); 
+                System.out.println("Game over!! , The secret number was : " + game.getTargetNum()); // FIXED
             }
 
-            keepPlaying = inputHandler.askToPlayAgain();
+            keepPlaying = inputHandler.askToPlay(); // FIXED
         }
 
-        System.out.println("\nFinal Score  : Total Rounds = " + totalRounds + " | Won = " + roundsWon); 
+        System.out.println("\nFinal Score  : Total Rounds = " + totalRounds + " | Won = " + roundsWon);
         inputHandler.close();
     }
 }
