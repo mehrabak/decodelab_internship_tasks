@@ -7,8 +7,11 @@ public class Main {
 
         final int MAX_NUM = 100;
         final int MAX_ATTEMPT = 7;
+        
+        System.out.println("===============================================");
 
         System.out.println("\nWELCOME TO THE DECODELABS NUMBER GUESSING GAME \n");
+   System.out.println("===============================================");
 
         boolean keepPlaying = true;
 
@@ -17,7 +20,7 @@ public class Main {
             GameEngine game = new GameEngine(MAX_ATTEMPT, MAX_NUM);
             boolean won = false;
 
-            System.out.println("\n---- Round " + totalRounds + " ----");
+            System.out.println("\n          ---- Round " + totalRounds + " ----      ");
 
             while (!game.isOutOfAttempts()) {
                 int guess = inputHandler.getValidGuess(game.getMaxNum(), game.getAttemptsLeft()); // use game.getMaxNum() so it works with difficulty later
@@ -25,12 +28,12 @@ public class Main {
 
                 switch (result) {
                     case "CORRECT" -> {
-                        System.out.println("🎯 You guessed it in " + (MAX_ATTEMPT - game.getAttemptsLeft()) + " attempts!");
+                        System.out.println("You guessed it in " + (MAX_ATTEMPT - game.getAttemptsLeft()) + " attempts!");
                         won = true;
                         roundsWon++;
                     }
-                    case "TOO_HIGH" -> System.out.println("📉 Too High");
-                    case "TOO_LOW" -> System.out.println("📈 Too Low");
+                    case "TOO_HIGH" -> System.out.println(" Too High");
+                    case "TOO_LOW" -> System.out.println("Too Low");
                 }
                 if (won) break;
             }
@@ -42,7 +45,7 @@ public class Main {
             keepPlaying = inputHandler.askToPlay(); // FIXED
         }
 
-        System.out.println("\nFinal Score  : Total Rounds = " + totalRounds + " | Won = " + roundsWon);
+        System.out.println("\nFinal Score  : Total Rounds = " + totalRounds + " \nWon = " + roundsWon);
         inputHandler.close();
     }
 }
