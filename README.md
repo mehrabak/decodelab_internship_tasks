@@ -2,10 +2,10 @@ DecodeLabs Java Internship Projects
 This repository contains Object-Oriented Java implementations for Project 1 and Project 2 of the DecodeLabs Industrial Training Program.
 # Project 1: Number Guessing Game (OOP Version)
 
-A crash-proof, Object-Oriented Java number guessing game built as part of the DecodeLabs Industrial Training Program[span_0](start_span)[span_0](end_span). The application generates a stochastic number within a specified range, provides real-time user feedback, tracks attempt limits using optimal search strategies, and maintains session persistence across multiple rounds[span_1](start_span)[span_1](end_span).
+A crash-proof, Object-Oriented Java number guessing game built as part of the DecodeLabs Industrial Training Program.The application generates a stochastic number within a specified range, provides real-time user feedback, tracks attempt limits using optimal search strategies, and maintains session persistence across multiple rounds
 
 ## 📌 Project Overview
-* **Objective:** Bridge basic human intuition with machine randomness through control flow and state management[span_2](start_span)[span_2](end_span).
+* **Objective:** Bridge basic human intuition with machine randomness through control flow and state management.
 * **Architecture:** Object-Oriented Programming (OOP) separating game state, input processing, and execution control[span_3](start_span)[span_3](end_span).
 * **Range:** 1 to 100 inclusive[span_4](start_span)[span_4](end_span).
 * **Attempt Limit:** 7 attempts per round based on binary search efficiency[span_5](start_span)[span_5](end_span).
@@ -54,13 +54,13 @@ src/
 1. Clone the repository:
    ```bash
    git clone [https://github.com/your-username/decodelabs-java-projects.git](https://github.com/your-username/decodelabs-java-projects.git)
-   cd decodelabs-java-projects/Project1
+   cd decodelab_internship_tasks/Number_Guessing_Game
 
  * Compile the Java source files:
-   javac DecodeLabs_Java_P1.java GameEngine.java InputHandler.java
+   javac  Main.java GameEngine.java InputHandler.java
 
  * Run the main class:
-   java DecodeLabs_Java_P1
+   java  Main
 
 💻 Sample Output
 ==================================================
@@ -127,13 +127,13 @@ A deterministic, enterprise-style Java data processor built for Project 2 of the
 src/
 ├── GradeCalculator.java   # Data accumulation, percentage math, and grade classification
 ├── InputHandler.java      # Input acquisition, type safety, and range validation
-└── DecodeLabs_Java_P2.java # Main controller executing the IPO workflow
+└── Main.java # Main controller executing the IPO workflow
 
 | Class | Responsibility | Key Methods |
 | :--- | :--- | :--- |
 | `GradeCalculator` | Mark storage, total computation, percentage math, grade lookup | `calculateTotal()`, `calculateAveragePercentage()`, `assignGrade(double)` |
 | `InputHandler` | Safe numerical input collection and validation | `getPositiveInt(String)`, `getValidMark(int)` |
-| `DecodeLabs_Java_P2` | Workflow execution and report output | `main(String[] args)` |
+| ` Main` | Workflow execution and report output | `main(String[] args)` |
 
 ---
 
@@ -145,7 +145,7 @@ src/
 ### Execution Steps
 1. Navigate to the project directory:
    ```bash
-   cd decodelabs-java-projects/Project2
+   cd decodelab_internship_tasks/Student_Grading_System
 
  * Compile the Java source files:
    javac Main.java GradeCalculator.java InputHandler.java
